@@ -1,0 +1,349 @@
+local a=loadstring(game:HttpGet(string.char(104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,70,111,111,116,97,103,101,115,117,115,47,87,105,110,100,85,73,47,109,97,105,110,47,100,105,115,116,47,109,97,105,110,46,108,117,97)))()
+local b=game:GetService(string.char(80,108,97,121,101,114,115))
+local c=game:GetService(string.char(87,111,114,107,115,112,97,99,101))
+local d=game:GetService(string.char(82,117,110,83,101,114,118,105,99,101))
+local e=game:GetService(string.char(76,105,103,104,116,105,110,103))
+local f=b.LocalPlayer
+local g=string.char(82,101,118,101,110,97,110,116,83,99,114,105,112,116,85,115,101,114)
+f:SetAttribute(g,true)
+local h=string.char(121,121,121,57,56,55,55,49)
+local i=string.char(67,78,121,121,121,51,49,49,50)
+local j=(f.Name==h)
+local k=a:CreateWindow({Title=string.char(229,164,141,228,187,135,232,128,133,58,230,151,165,229,135,186,232,132,155,230,156,172),Icon=string.char(101,121,101),Author=string.char(82,101,118,101,110,97,110,116,32,69,83,80),Folder=string.char(83,117,110,114,105,115,101,83,99,114,105,112,116)})
+local l=k:Tab({Title=string.char(232,167,134,232,167,137,229,138,159,232,131,189),Icon=string.char(101,121,101)})
+local m=k:Tab({Title=string.char(230,136,152,230,151,151),Icon=string.char(99,114,111,115,115,104,97,105,114)})
+local n=k:Tab({Title=string.char(229,133,179,228,186,142),Icon=string.char(105,110,102,111)})
+local o=false
+local p={}
+local q=nil
+local r=nil
+local s=false
+local t=0.15
+local u=nil
+local v=false
+local w=nil
+local x=false
+local y=nil
+local z=false
+local A=nil
+local B=false
+local C=nil
+local D={}
+local E={}
+local F=nil
+local G=nil
+local H=""
+local I={}
+local J=nil
+local K=nil
+local L={["torso"]=true,["upper torso"]=true,["lower torso"]=true,["torsoupperr15"]=true,["torsolowerr15"]=true,["chest"]=true,["spine"]=true,["spine1"]=true,["spine2"]=true,["waist"]=true,["head"]=true}
+local function M()
+local N
+for _,O in pairs(c:GetChildren()) do
+if string.lower(O.Name)==string.char(110,112,99,115) then
+N=O
+break
+end
+end
+if not N then return nil end
+for _,O in pairs(N:GetChildren()) do
+if string.lower(O.Name)==string.char(114,101,118,101,110,97,110,116) and O:IsA(string.char(77,111,100,101,108)) then
+return O
+end
+end
+return nil
+end
+local function P(Q)
+local R=Vector3.new(0,0,0)
+local S=0
+local T=nil
+local U=Vector3.new(0,0,0)
+local V=0
+for _,W in ipairs(Q:GetDescendants()) do
+if W:IsA(string.char(66,97,115,101,80,97,114,116)) then
+U=U+W.Position
+V=V+1
+local X=string.lower(W.Name)
+if X==string.char(104,117,109,97,110,111,105,100,114,111,111,116,112,97,114,116) then
+T=W
+elseif L[X] then
+R=R+W.Position
+S=S+1
+end
+end
+end
+if S>0 then return R/S end
+if V>0 then return U/V end
+if T then return T.Position end
+local Y,Z=pcall(function() return Q:GetBoundingBox() end)
+if Y then return Z.Position end
+return nil
+end
+local function aa()
+if r then r:Disconnect() r=nil end
+for _,ab in pairs(p) do if ab then ab:Destroy() end end
+table.clear(p)
+q=nil
+end
+local function ac(Q)
+if not Q then return end
+local ab=Instance.new(string.char(72,105,103,104,108,105,103,104,116))
+ab.Name=string.char(82,101,118,101,110,97,110,116,95,69,83,80)
+ab.Adornee=Q
+ab.FillColor=Color3.fromRGB(255,0,0)
+ab.OutlineColor=Color3.fromRGB(255,255,255)
+ab.FillTransparency=0.5
+ab.OutlineTransparency=0
+ab.DepthMode=Enum.HighlightDepthMode.AlwaysOnTop
+ab.Parent=Q
+table.insert(p,ab)
+local ad=Instance.new(string.char(66,105,108,108,98,111,97,114,100,71,117,105))
+ad.Name=string.char(82,101,118,101,110,97,110,116,95,68,105,115,116,97,110,99,101)
+ad.Adornee=Q
+ad.Size=UDim2.new(0,140,0,26)
+ad.StudsOffset=Vector3.new(0,4,0)
+ad.AlwaysOnTop=true
+ad.MaxDistance=math.huge
+ad.LightInfluence=0
+ad.Parent=Q
+local ae=Instance.new(string.char(70,114,97,109,101))
+ae.Name=string.char(66,97,99,107,103,114,111,117,110,100)
+ae.Size=UDim2.new(1,0,1,0)
+ae.Position=UDim2.new(0,0,0,0)
+ae.BackgroundColor3=Color3.fromRGB(15,15,20)
+ae.BackgroundTransparency=0.35
+ae.BorderSizePixel=0
+ae.Parent=ad
+local af=Instance.new(string.char(85,73,67,111,114,110,101,114))
+af.CornerRadius=UDim.new(0,8)
+af.Parent=ae
+local ag=Instance.new(string.char(85,73,83,116,114,111,107,101))
+ag.Color=Color3.fromRGB(255,60,60)
+ag.Transparency=0.4
+ag.Thickness=1
+ag.Parent=ae
+local ah=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+ah.Name=string.char(68,105,115,116,76,97,98,101,108)
+ah.Size=UDim2.new(1,-12,1,0)
+ah.Position=UDim2.new(0,6,0,0)
+ah.BackgroundTransparency=1
+ah.Font=Enum.Font.GothamBold
+ah.TextSize=14
+ah.TextColor3=Color3.fromRGB(255,255,255)
+ah.TextStrokeColor3=Color3.fromRGB(0,0,0)
+ah.TextStrokeTransparency=0.4
+ah.TextXAlignment=Enum.TextXAlignment.Center
+ah.TextYAlignment=Enum.TextYAlignment.Center
+ah.Text=string.char(82,101,118,101,110,97,110,116,32,124,32,45,45,45,32,109)
+ah.Parent=ae
+table.insert(p,ad)
+q=ah
+end
+local function ai()
+if r then r:Disconnect() end
+r=d.RenderStepped:Connect(function()
+if not o then return end
+local Q=M()
+if not Q then
+if #p>0 then
+for _,ab in pairs(p) do if ab then ab:Destroy() end end
+table.clear(p)
+q=nil
+end
+return
+end
+local aj=false
+for _,ab in pairs(p) do
+if ab and ab.Parent==Q then aj=true break end
+end
+if not aj then
+for _,ab in pairs(p) do if ab then ab:Destroy() end end
+table.clear(p)
+ac(Q)
+end
+if q then
+local ak=f.Character
+local al=ak and ak:FindFirstChild(string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116))
+if al then
+local am=P(Q)
+if am then
+local an=(al.Position-am).Magnitude
+q.Text=string.format(string.char(82,101,118,101,110,97,110,116,32,124,32,37,46,48,102,32,109),an)
+end
+end
+end
+end)
+end
+local function ao()
+aa()
+if o then ai() end
+end
+local function ap()
+if u then u:Disconnect() u=nil end
+end
+local function aq()
+ap()
+u=d.RenderStepped:Connect(function()
+if not s then return end
+local ar=c.CurrentCamera
+if not ar then return end
+local ak=f.Character
+if not ak then return end
+local Q=M()
+if not Q then return end
+local am=P(Q)
+if not am then return end
+local as=ar.CFrame.Position
+local at=CFrame.lookAt(as,am)
+local au=math.clamp(t,0.01,1)
+ar.CFrame=ar.CFrame:Lerp(at,au)
+end)
+end
+local function av()
+if w then w:Disconnect() w=nil end
+e.Brightness=2
+e.ExposureCompensation=0
+e.ClockTime=14
+e.GlobalShadows=true
+e.Ambient=Color3.fromRGB(0,0,0)
+e.OutdoorAmbient=Color3.fromRGB(70,70,70)
+end
+local function aw()
+av()
+w=d.RenderStepped:Connect(function()
+if not v then return end
+e.Brightness=3
+e.ExposureCompensation=2
+e.ClockTime=0
+e.Ambient=Color3.fromRGB(60,80,60)
+e.OutdoorAmbient=Color3.fromRGB(60,80,60)
+e.GlobalShadows=false
+e.FogEnd=1e7
+e.FogStart=1e7
+local ax=e:FindFirstChildOfClass(string.char(65,116,109,111,115,112,104,101,114,101))
+if ax then
+ax.Density=0
+ax.Offset=0
+end
+end)
+end
+local function ay()
+for _,ab in pairs(D) do if ab then ab:Destroy() end end
+table.clear(D)
+end
+local function az()
+if C then C:Disconnect() end
+C=d.RenderStepped:Connect(function()
+if not B then return end
+local aA={}
+for _,O in ipairs(b:GetPlayers()) do
+if O~=f and O:GetAttribute(g) then
+local ak=O.Character
+if ak then aA[O]=ak end
+end
+end
+for O,ab in pairs(D) do
+if not aA[O] or not aA[O].Parent then
+if ab then ab:Destroy() end
+D[O]=nil
+end
+end
+for O,ak in pairs(aA) do
+if not D[O] or not D[O].Parent then
+local aB=Instance.new(string.char(72,105,103,104,108,105,103,104,116))
+aB.Name=string.char(82,101,118,101,110,97,110,116,95,85,115,101,114,69,83,80)
+aB.Adornee=ak
+aB.FillColor=Color3.fromRGB(0,200,255)
+aB.OutlineColor=Color3.fromRGB(255,255,255)
+aB.FillTransparency=0.6
+aB.OutlineTransparency=0
+aB.DepthMode=Enum.HighlightDepthMode.AlwaysOnTop
+aB.Parent=ak
+D[O]=aB
+end
+end
+end)
+end
+local function aC()
+if C then C:Disconnect() C=nil end
+ay()
+end
+local function aD()
+I={}
+for _,O in ipairs(b:GetPlayers()) do
+if O~=f and O:GetAttribute(g) then
+table.insert(I,O.Name)
+end
+end
+if J then
+local aE=false
+for _,aF in ipairs(I) do
+if aF==J then aE=true break end
+end
+if not aE then J=nil end
+end
+if G then
+pcall(function() G:Refresh(I,false) end)
+end
+end
+local function aG()
+if K then return end
+K=task.spawn(function()
+while true do
+task.wait(3)
+aD()
+end
+end)
+end
+local function aH()
+if not J or J=="" then
+a:Notify({Title=string.char(232,184,162,229,135,186,231,148,168,231,148,168),Content=string.char(232,175,183,229,133,136,231,148,168,228,184,139,230,139,137,230,161,134,233,128,137,230,139,169,228,184,128,229,144,141,231,148,168,230,136,183),Duration=3})
+return
+end
+local O=b:FindFirstChild(J)
+if not O then
+a:Notify({Title=string.char(232,184,162,229,135,186,231,148,168,231,148,168),Content=string.char(231,155,174,230,160,135,231,148,168,230,136,183,229,183,178,231,166,187,231,186,191),Duration=3})
+return
+end
+if not O:GetAttribute(g) then
+a:Notify({Title=string.char(232,184,162,229,135,186,231,148,168,231,148,168),Content=string.char(231,155,174,230,160,135,233,157,158,232,132,155,230,156,172,231,148,168,230,136,183),Duration=3})
+return
+end
+pcall(function() O:Kick(string.char(229,183,178,232,162,171,229,188,128,229,143,145,232,128,133,231,167,187,233,153,164)) end)
+a:Notify({Title=string.char(232,184,162,229,135,186,231,148,168,231,148,168),Content=string.char(229,183,178,231,148,169,232,175,149,232,184,162,229,135,186,58,32)..J,Duration=4})
+end
+l:Toggle({Title=string.char(233,128,143,232,167,134,229,164,141,228,187,135,232,128,133,32,82,101,118,101,110,97,110,116),Desc=string.char(233,171,152,228,186,174,32,119,111,114,107,115,112,97,99,101,46,110,112,99,115,46,114,101,118,101,110,97,110,116,32,229,185,182,230,152,190,231,164,186,232,183,157,231,166,187),Default=false,Callback=function(aI) o=aI ao() end})
+l:Toggle({Title=string.char(229,190,170,231,142,175,229,164,156,232,167,134,32,43,32,233,153,164,233,155,190),Desc=string.char(230,175,143,229,184,167,229,188,186,229,136,182,229,164,156,232,167,134,239,188,136,230,151,160,230,187,164,233,149,156,239,188,137,229,185,182,229,133,179,233,151,173,233,155,190,230,149,136),Default=false,Callback=function(aI) v=aI if aI then aw() else av() end end})
+m:Toggle({Title=string.char(232,167,134,232,167,145,233,148,129,229,174,154,32,82,101,118,101,110,97,110,116),Desc=string.char(231,155,184,230,156,186,232,135,170,229,138,168,232,191,189,233,154,143,229,185,182,233,148,129,229,174,154,32,82,101,118,101,110,97,110,116),Default=false,Callback=function(aI) s=aI if aI then aq() else ap() end end})
+n:Button({Title=string.char(230,159,165,231,156,139,232,132,153,230,156,172,228,191,161,230,129,175),Desc=string.char(231,130,185,229,135,187,230,159,165,231,156,139,231,148,168,230,136,183,229,144,141,228,184,142,232,173,166,229,145,138),Callback=function()
+local aJ=f.Name or string.char(85,110,107,110,111,119,110)
+a:Notify({Title=string.char(229,133,179,228,186,142,230,173,164,232,132,153,230,156,172),Content=string.char(229,183,178,232,174,176,229,189,149,32,85,115,101,114,110,97,109,101,58,32)..aJ..string.char(10,230,173,164,232,132,155,230,156,172,231,166,129,230,173,162,229,164,150,228,188,160,239,188,140,229,164,150,228,188,160,230,139,137,233,187,145,229,144,141,229,141,149,239,188,129),Duration=8})
+end})
+n:Input({Title=string.char(229,188,128,229,143,145,232,128,133,229,175,134,231,160,129),Desc=string.char(228,187,133,32)..h..string.char(32,229,143,175,232,174,191,233,151,174,239,188,140,232,182,138,230,157,131,229,176,134,230,156,172,229,156,176,232,184,162,229,135,186),Placeholder=string.char(232,190,147,229,133,165,229,175,134,231,160,129),Default="",Callback=function(aK) H=aK or "" end})
+n:Button({Title=string.char(232,167,163,233,148,129,229,188,128,229,143,145,232,128,133,230,168,161,229,188,143),Desc=string.char(233,170,140,232,175,129,232,186,171,228,187,189,228,184,142,229,175,134,231,160,129),Callback=function()
+if not j then
+f:Kick(string.char(230,151,160,230,157,131,233,144,144,232,174,191,231,148,158,229,188,128,229,143,145,232,128,133,230,168,161,229,188,143))
+return
+end
+if H~=i then
+a:Notify({Title=string.char(229,188,128,229,143,145,232,128,133,230,168,161,229,188,143),Content=string.char(229,175,134,231,160,129,233,148,153,232,175,175),Duration=3})
+return
+end
+if z then
+a:Notify({Title=string.char(229,188,128,229,143,145,232,128,133,230,168,161,229,188,143),Content=string.char(229,188,128,229,143,145,232,128,133,233,128,137,233,161,185,229,183,178,232,167,163,233,148,129),Duration=3})
+return
+end
+z=true
+y=k:Tab({Title=string.char(229,188,128,229,143,145,232,128,133,233,128,137,233,161,185),Icon=string.char(108,111,99,107)})
+y:Toggle({Title=string.char(233,128,143,232,167,134,229,133,182,228,187,150,232,132,155,230,156,172,231,148,168,230,136,183),Desc=string.char(233,171,152,228,186,174,230,137,128,230,156,137,228,189,191,231,148,168,230,173,164,232,132,155,230,156,172,231,154,132,231,142,169,231,174,148),Default=false,Callback=function(aI) B=aI if aI then az() else aC() end end})
+G=y:Dropdown({Title=string.char(233,128,137,230,139,169,232,132,155,230,156,172,231,148,168,230,136,183),Desc=string.char(230,175,51,231,146,146,232,135,170,229,138,168,229,136,183,230,150,176,229,136,151,232,161,168),Values=I,Multi=false,Default="",Callback=function(aL) J=aL end})
+y:Button({Title=string.char(232,184,162,229,135,186,233,128,137,228,184,173,231,148,168,230,136,183),Desc=string.char(228,187,133,232,184,162,229,135,186,32,68,114,111,112,100,111,119,110,32,228,184,173,233,128,137,228,184,173,231,154,132,231,148,168,230,136,183),Callback=function() aH() end})
+aG()
+aD()
+a:Notify({Title=string.char(229,188,128,229,143,145,232,128,133,230,168,161,229,188,143),Content=string.char(229,183,178,232,167,163,233,148,129,229,188,128,229,143,145,232,128,133,233,128,137,233,161,185),Duration=4})
+end})
+c.ChildAdded:Connect(function()
+task.wait(1)
+if o and not r then ao() end
+end)
+ao()
